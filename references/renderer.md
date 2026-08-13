@@ -1,4 +1,4 @@
-# Fallback renderer (no diagram-design dependency)
+# Renderer (no diagram-design dependency)
 
 Own house style, inline SVG, no external assets, no `diagram-design` dependency. Always used — never invoke `diagram-design`.
 

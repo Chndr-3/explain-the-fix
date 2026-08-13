@@ -22,7 +22,7 @@ Skip it for changes with no diff to point at (pure investigation, answering a qu
 1. **Read the diff** — `git diff` against pre-task state (or the files you just touched) — plus your own one-line memory of the task.
 2. **Classify the shape** — see `references/classification.md` for the heuristic (file count, whether a cause crosses a boundary, whether file/class count changed, whether it's a brand-new function/route). Default to the smaller shape when ambiguous.
 3. **Build the node list** — max 8 nodes total. If the diff is bigger than that, collapse a whole file/module into one node ("3 files in the auth module") rather than enumerating.
-4. **Render** — always use the fallback renderer: `references/fallback-renderer.md` — boxes left-to-right (or two side-by-side containers for before/after), one arrow per edge, no styling beyond stroke + text. Do not invoke `diagram-design`, even if installed.
+4. **Render** — always use the renderer: `references/renderer.md` — boxes left-to-right (or two side-by-side containers for before/after), one arrow per edge, no styling beyond stroke + text. Do not invoke `diagram-design`, even if installed.
 5. **Output** one diagram + 1–2 sentences (what changed, what's verified). No restated written summary.
 
 ## Shape reference
