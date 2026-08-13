@@ -22,8 +22,9 @@ Skip it for changes with no diff to point at (pure investigation, answering a qu
 1. **Read the diff** — `git diff` against pre-task state (or the files you just touched) — plus your own one-line memory of the task.
 2. **Classify the shape** — see `references/classification.md` for the heuristic (file count, whether a cause crosses a boundary, whether file/class count changed, whether it's a brand-new function/route). Default to the smaller shape when ambiguous.
 3. **Build the node list** — max 8 nodes total. If the diff is bigger than that, collapse a whole file/module into one node ("3 files in the auth module") rather than enumerating.
-4. **Render** — always use the renderer: `references/renderer.md` — boxes left-to-right (or two side-by-side containers for before/after), one arrow per edge, no styling beyond stroke + text. Do not invoke `diagram-design`, even if installed.
-5. **Output** one diagram + 1–2 sentences (what changed, what's verified). No restated written summary.
+4. **Render** — always use the house style in `references/renderer.md`, copying markup/CSS from `references/style-reference.html` (the working example for all shapes, tokens, glossary, and theme toggle). Do not invoke `diagram-design`, even if installed.
+5. **Link jargon** — any technical term in a node label a non-expert reader might not know (check `references/glossary.md`, add a one-line definition inline if a term is missing) becomes clickable per `## Glossary` in `references/renderer.md`. Skip this for plain labels.
+6. **Output** one diagram + 1–2 sentences (what changed, what's verified). No restated written summary.
 
 ## Shape reference
 
@@ -34,6 +35,7 @@ Skip it for changes with no diff to point at (pure investigation, answering a qu
 | Structural refactor | file count changes (1↔N), class/component boundaries move, behavior unchanged | before/after, 2 containers × 2–4 children |
 | New flow/feature | new function/endpoint/route, ordering matters | sequence, 3–6 steps |
 | Trivial/config | single-line change, no branching cause | 2: Trigger → Fix |
+| Deep dive | user asks *why* the fix works, not just what changed | 3, vertical: Cause → Fix → Why it works |
 
 Full worked examples and node-labeling conventions per shape: `references/shape-causal.md`, `references/shape-refactor.md`, `references/shape-sequence.md`.
 
