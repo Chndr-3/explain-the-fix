@@ -11,7 +11,7 @@ Example: "God-object controller split into two components" (big-quantum-mobile)
 
 ## Layout rule
 
-- Left container = before, right = after (or top/bottom if diagram-design's layer-stack type reads better for the case).
+- Left container = before, right = after (see `references/renderer.md`'s "Before/after refactor" layout for the actual house-style markup — dashed containers, mono call chains, accent bar on the changed row).
 - Children are responsibilities/methods, not every line moved — group tightly-coupled lines into one child.
 - Draw at most one arrow between containers (labeled "split into" / "merged into") — don't wire every child pair.
 - If more than 4 children would be needed per side, collapse the smallest ones into an "other" child rather than exceeding the 8-node total budget.
