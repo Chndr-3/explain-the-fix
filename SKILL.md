@@ -23,8 +23,8 @@ Skip it for changes with no diff to point at (pure investigation, answering a qu
 2. **Classify the shape** — see `references/classification.md` for the heuristic (file count, whether a cause crosses a boundary, whether file/class count changed, whether it's a brand-new function/route). Default to the smaller shape when ambiguous.
 3. **Build the node list** — max 8 nodes total. If the diff is bigger than that, collapse a whole file/module into one node ("3 files in the auth module") rather than enumerating.
 4. **Render** — always use the house style in `references/renderer.md`, copying markup/CSS from `references/style-reference.html` (the working example for all shapes, tokens, glossary, and theme toggle). Do not invoke `diagram-design`, even if installed.
-5. **Link jargon** — any technical term in a node label a non-expert reader might not know (check `references/glossary.md`, add a one-line definition inline if a term is missing) becomes clickable per `## Glossary` in `references/renderer.md`. Skip this for plain labels.
-6. **Output** one diagram + 1–2 sentences (what changed, what's verified). No restated written summary.
+5. **Link jargon** — not optional. Check every node label and subtitle against `references/glossary.md`. Any stdlib/API name, flag, class, or concept that isn't the user's own vocabulary from the diff (e.g. `TextWrapper`, `stdlib`, `break_on_hyphens`, `idempotent`) gets linked per `## Glossary` in `references/renderer.md` — add a one-line definition to `glossary.md` if the term is missing rather than skipping it. Only variable/function names the user themself just wrote, and generic words like "Fix" or "Trigger", are exempt. If a diagram has zero linkable terms, that's a real outcome worth double-checking, not a default.
+6. **Output** — the diagram, AND in the chat reply (not just the card's note) 1–2 sentences: what changed, what's verified. The card's note is the diagram's own caption; the chat reply is separate and still required. No restated written summary beyond that.
 
 ## Shape reference
 

@@ -44,6 +44,22 @@ All four are in `style-reference.html` as complete, copyable `<svg>` blocks (sea
 
 Node/shape budget unchanged: 8 nodes max, one diagram per explanation.
 
+## Sizing and text wrapping (don't copy coordinates verbatim)
+
+The pixel positions in `style-reference.html` fit *its own* example text ("Retry on 429", "Backoff never reset"). Real labels are often longer — copying its `x`/`width` values as-is causes text to overflow the box. Every render needs its own sizing pass:
+
+- **Title (`.n-title`, 13.5px sans)**: roughly 7px/character. If a title's estimated width exceeds the box's inner width (box width minus ~36px padding), split it across two `<tspan>` lines instead of widening the box past ~220px:
+  ```svg
+  <text class="n-title" x="X" y="Y">
+    <tspan x="X" dy="0">First line of title</tspan>
+    <tspan x="X" dy="16">continues here</tspan>
+  </text>
+  ```
+  A two-line title needs a taller box (+16–18px) and pushes the subtitle down to match — recompute `n-sub`'s `y` and, for causal-chain/deep-dive, the connector/tick coordinates that follow it. Cap titles at 2 lines; if it still doesn't fit, shorten the label instead of adding a third line.
+- **Subtitle (`.n-sub`/`.mono`, 11–11.5px mono)**: roughly 6.5px/character, single line — mono file:line refs are usually short, but if one runs long (a deep namespace path), truncate with `…` rather than wrapping a second line.
+- **Box width**: size to the longest line it contains (title or subtitle) + 36px padding, not a fixed 180px. Recenter connectors (`circle cx`, `path d` for `.flow`/`.spine`) and downstream node `x` positions to match — the whole row's total width and the `viewBox` change together when one box grows.
+- When in doubt, measure a plain-text draft of every label first, size boxes to the longest one in the row (so nodes stay visually even), *then* place coordinates — don't place coordinates first and hope text fits.
+
 ## Glossary (click to see meaning)
 
 Two tiers, both CSS-only (`:target`), no JavaScript — see `references/glossary.md` for the term dictionary, and `style-reference.html` section 4 + the drawer + the `.modal` divs at the bottom for the full working markup.
