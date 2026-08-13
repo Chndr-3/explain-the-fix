@@ -24,7 +24,7 @@ Skip it for changes with no diff to point at (pure investigation, answering a qu
 3. **Build the node list** — max 8 nodes total. If the diff is bigger than that, collapse a whole file/module into one node ("3 files in the auth module") rather than enumerating.
 4. **Render**:
    - If `diagram-design` is installed, invoke it with the shape + node list already scoped (don't let it re-derive the shape). Cause chain / trivial → `flowchart`, refactor → `layer stack` or `nested` before/after, new flow → `sequence`.
-   - Else fall back to a minimal inline SVG: boxes left-to-right (or two side-by-side containers for before/after), one arrow per edge, no styling beyond stroke + text. Skip diagram-design's brand system entirely in the fallback.
+   - Else, or if the user asks for a diagram independent of `diagram-design`, use the fallback renderer: `references/fallback-renderer.md` — boxes left-to-right (or two side-by-side containers for before/after), one arrow per edge, no styling beyond stroke + text.
 5. **Output** one diagram + 1–2 sentences (what changed, what's verified). No restated written summary.
 
 ## Shape reference
