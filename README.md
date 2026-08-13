@@ -6,9 +6,23 @@ Some people read code changes fastest as prose. Others get there faster from a p
 
 It classifies the diff into one of six shapes — trivial fix, single-system cause chain, cross-system cause chain, before/after refactor, sequence flow, or a vertical deep dive (cause → fix → why it works, for when you ask *why* a fix works rather than just what changed) — and renders 2–8 nodes sized to match the change. No shape is picked without a diff to justify it, and no diagram exceeds 8 nodes regardless of how big the change was.
 
+## Example
+
+A retry bug fixed in three lines, explained as a causal chain instead of a paragraph:
+
+<img src="docs/example.svg" alt="Example diagram: Trigger (Retry on 429) leads to Cause (Backoff never reset) leads to Fix (Reset on success), with a one-line caption underneath" width="700">
+
 ## Install
 
-Drop this directory into your Claude Code skills folder (e.g. `~/.claude/skills/explain-the-fix`).
+**As a plugin (recommended):**
+```
+/plugin marketplace add Chndr-3/explain-the-fix
+/plugin install explain-the-fix
+```
+
+**Manually:** drop this directory into your Claude Code skills folder (e.g. `~/.claude/skills/explain-the-fix`).
+
+Also ships a `.codex-plugin/plugin.json` manifest for installing into [Codex CLI](https://github.com/openai/codex).
 
 ## Use
 

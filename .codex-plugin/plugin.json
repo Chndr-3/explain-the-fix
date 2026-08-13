@@ -1,0 +1,40 @@
+{
+  "name": "explain-the-fix",
+  "description": "Explains a just-finished coding task (bug fix, refactor, new feature) as a small, proportional diagram instead of a wall of text — built for vibe coders who lose track of what an AI agent actually changed. Renders a self-contained dark-mode-default HTML/SVG diagram with a clickable glossary for jargon.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Chandra Wijaya",
+    "url": "https://github.com/Chndr-3"
+  },
+  "homepage": "https://github.com/Chndr-3/explain-the-fix",
+  "repository": "https://github.com/Chndr-3/explain-the-fix",
+  "license": "MIT",
+  "keywords": [
+    "diagrams",
+    "svg",
+    "vibe-coding",
+    "code-review",
+    "explainability",
+    "documentation",
+    "ai-agent"
+  ],
+  "skills": "./",
+  "interface": {
+    "displayName": "Explain the Fix",
+    "shortDescription": "Explain a just-finished code change as a small diagram, not a wall of text.",
+    "longDescription": "Explains a just-finished coding task (bug fix, refactor, new feature) as a small, proportional diagram instead of a wall of text — built for vibe coders who lose track of what an AI agent actually changed. Classifies the diff into a causal chain, before/after refactor, sequence flow, or vertical deep-dive (cause → fix → why it works), then renders a self-contained, dark-mode-default HTML/SVG diagram with a clickable glossary for any jargon in the labels.",
+    "developerName": "Chandra Wijaya",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/Chndr-3/explain-the-fix",
+    "defaultPrompt": [
+      "Explain what you just did.",
+      "Visualize the fix you just made.",
+      "Why does this fix work?"
+    ],
+    "brandColor": "#f59e0b"
+  }
+}

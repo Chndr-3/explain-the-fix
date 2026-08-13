@@ -1,0 +1,21 @@
+{
+  "name": "explain-the-fix",
+  "description": "Explains a just-finished coding task (bug fix, refactor, new feature) as a small, proportional diagram instead of a wall of text — built for vibe coders who lose track of what an AI agent actually changed. Renders a self-contained dark-mode-default HTML/SVG diagram with a clickable glossary for jargon.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Chandra Wijaya",
+    "url": "https://github.com/Chndr-3"
+  },
+  "homepage": "https://github.com/Chndr-3/explain-the-fix",
+  "repository": "https://github.com/Chndr-3/explain-the-fix",
+  "license": "MIT",
+  "keywords": [
+    "diagrams",
+    "svg",
+    "vibe-coding",
+    "code-review",
+    "explainability",
+    "documentation",
+    "ai-agent"
+  ]
+}
