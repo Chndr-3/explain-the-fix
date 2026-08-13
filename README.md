@@ -38,6 +38,10 @@ Its own house style — no dependency on `diagram-design` or any other skill. In
 
 `references/style-reference.html` is the canonical working example (all shapes, the glossary system, the theme toggle) — open it directly in a browser to see the current look. See `SKILL.md` for the full classification table and `references/renderer.md` for the shape-by-shape rendering rules.
 
+## Contributing
+
+See `CONTRIBUTING.md`. Bugs and feature requests: [GitHub issues](https://github.com/Chndr-3/explain-the-fix/issues). Security issues: see `SECURITY.md` (please don't file those as public issues).
+
 ## License
 
 MIT — see `LICENSE`.

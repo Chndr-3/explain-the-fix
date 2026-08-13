@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or discussion
+    url: https://github.com/Chndr-3/explain-the-fix/discussions
+    about: For general questions that aren't a bug or feature request.

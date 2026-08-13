@@ -1,0 +1,27 @@
+name: Bug report
+description: A diagram rendered wrong, a step got skipped, or the skill misbehaved.
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did the diagram/output do wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: The diff or task that triggered it
+      description: Most rendering bugs are specific to a label/shape combination — the actual diff or a minimal reproduction helps a lot.
+      render: diff
+  - type: input
+    id: version
+    attributes:
+      label: Claude Code / plugin version (if known)

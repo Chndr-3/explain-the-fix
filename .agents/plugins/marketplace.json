@@ -1,0 +1,20 @@
+{
+  "name": "explain-the-fix",
+  "interface": {
+    "displayName": "Explain the Fix"
+  },
+  "plugins": [
+    {
+      "name": "explain-the-fix",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

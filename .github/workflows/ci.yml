@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate JSON manifests
+        run: |
+          for f in .claude-plugin/plugin.json .claude-plugin/marketplace.json .codex-plugin/plugin.json .agents/plugins/marketplace.json; do
+            echo "checking $f"
+            jq empty "$f"
+          done
+
+      - name: Plugin name/version stay in sync
+        run: |
+          claude_name=$(jq -r .name .claude-plugin/plugin.json)
+          claude_version=$(jq -r .version .claude-plugin/plugin.json)
+          codex_name=$(jq -r .name .codex-plugin/plugin.json)
+          codex_version=$(jq -r .version .codex-plugin/plugin.json)
+          market_name=$(jq -r .name .claude-plugin/marketplace.json)
+          agents_name=$(jq -r .name .agents/plugins/marketplace.json)
+
+          fail=0
+          [ "$claude_name" = "$codex_name" ] || { echo "name mismatch: plugin.json ($claude_name) vs codex-plugin ($codex_name)"; fail=1; }
+          [ "$claude_version" = "$codex_version" ] || { echo "version mismatch: plugin.json ($claude_version) vs codex-plugin ($codex_version)"; fail=1; }
+          [ "$claude_name" = "$market_name" ] || { echo "name mismatch: plugin.json ($claude_name) vs marketplace.json ($market_name)"; fail=1; }
+          [ "$claude_name" = "$agents_name" ] || { echo "name mismatch: plugin.json ($claude_name) vs agents/plugins/marketplace.json ($agents_name)"; fail=1; }
+          exit $fail
+
+      - name: Validate docs/example.svg is well-formed XML
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq libxml2-utils
+          xmllint --noout docs/example.svg
