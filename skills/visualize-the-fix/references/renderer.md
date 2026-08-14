@@ -29,9 +29,23 @@ Body background is a faint 28px dot grid (`background-image: linear-gradient(var
 
 ## Page structure
 
-Wrap the whole output in `.wrap` (max-width 820px, centered), then one `.card` per diagram (`background:var(--panel); border:1px solid var(--rule); border-radius:14px; box-shadow:var(--shadow); padding:18px 20px 20px`). Inside the card: `<header>` with `<h2>` (shape name) + `.tag` (the node-flow summary, e.g. "Trigger → Cause → Fix"), then `p.note` (one sentence on what this specific diagram shows), then the `<svg>`.
+Wrap the whole output in `.wrap` (max-width 960px, centered), then one `.card` per diagram (`background:var(--panel); border:1px solid var(--rule); border-radius:14px; box-shadow:var(--shadow); padding:18px 20px 20px`). Inside the card: `<header>` with `<h2>` (shape name) + `.tag` (the node-flow summary, e.g. "Trigger → Cause → Fix"), then `p.scope` (required — see below), then `p.note` (one sentence on what this specific diagram shows), then the `<svg>`.
 
 Skip the page-level `.eyebrow`/`h1`/`.dek` — that's this reference file's own title block, not part of a single explanation's output.
+
+## Naming the scope (required)
+
+A causal chain explains *what* changed and *why* — it doesn't say *where in the product*. A file:line reference (`fetchQueue.ts:114`) tells a reader where in the *code*, but not which feature, screen, or user flow they'd actually see this in, which is usually what a reader needs first. Always include a `p.scope` line between the header and the note:
+
+```html
+<p class="scope"><span class="scope-kick">WHERE</span>Checkout → Cart page, coupon flow (web + mobile)</p>
+```
+```css
+.scope{margin:2px 0 8px;font-size:13px;color:var(--text)}
+.scope-kick{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--rule);border-radius:4px;padding:1px 6px;margin-right:8px;vertical-align:1px}
+```
+
+Use a real breadcrumb — feature/component name → the specific screen or surface, plus platform if the fix only applies to some (`iOS + Android`, `web only`) — not a repeat of the file path already living in a node's `.n-sub`. If a change genuinely has no user-facing surface (an internal script, a build config, a pure backend invariant with nothing a user would ever see), say that explicitly — `<span class="scope-kick">WHERE</span>Backend only — no direct UI surface` — rather than dropping the line. Skipping it silently is what produces a diagram that's technically correct but tells a reader nothing about where to go look.
 
 ## Layout by shape
 
