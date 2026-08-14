@@ -20,7 +20,7 @@ Examples of unacceptable behavior:
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening a [GitHub issue](https://github.com/Chndr-3/explain-the-fix/issues) or contacting the maintainer directly through GitHub. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening a [GitHub issue](https://github.com/Chndr-3/visualize-the-fix/issues) or contacting the maintainer directly through GitHub. All complaints will be reviewed and investigated promptly and fairly.
 
 ## Attribution
 

@@ -1,14 +1,14 @@
 {
-  "name": "explain-the-fix",
+  "name": "visualize-the-fix",
   "metadata": {
-    "description": "Explains a just-finished coding task (bug fix, refactor, new feature) as a small, proportional diagram instead of a wall of text — built for vibe coders who lose track of what an AI agent actually changed. Renders a self-contained dark-mode-default HTML/SVG diagram with a clickable glossary for jargon."
+    "description": "Two skills, one house style: visualize-the-fix diagrams a just-finished coding task (bug fix, refactor, new feature) instead of a wall of text, and visualize-the-plan diagrams a proposed plan before you build it. Built for vibe coders who lose track of what an AI agent changed or is about to change. Renders self-contained dark-mode-default HTML/SVG diagrams with a clickable glossary for jargon."
   },
   "owner": {
     "name": "Chandra Wijaya"
   },
   "plugins": [
     {
-      "name": "explain-the-fix",
+      "name": "visualize-the-fix",
       "source": "./"
     }
   ]
