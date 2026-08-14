@@ -10,7 +10,7 @@ The diagnostic first step. Reads a confirmed diagnosis — right after investiga
 
 A bug traced to its root cause, not yet fixed:
 
-<img src="docs/example-problem.svg" alt="Example diagram: Symptom (Totals drift on refresh) leads to Factor (Memo keyed on filters) leads to Root cause (Stale page total reused, unresolved), with a one-line caption underneath" width="700">
+<img src="docs/example-problem.svg" alt="Example diagram: Symptom (Totals drift on refresh) leads to Factor (Memo keyed on filters) leads to Root cause (Stale page total reused, unresolved), with a one-line caption underneath" width="800">
 
 Triggers right after diagnosing a bug or incident, or on request: "explain the bug," "visualize the problem," "what's going wrong here," or "why does this fail" for the mechanism-deep-dive shape.
 
@@ -20,7 +20,7 @@ The proposal step. Reads a just-formed plan — typically right before it's pres
 
 A three-step plan, shown before any of it is built:
 
-<img src="docs/example-plan.svg" alt="Example diagram: Step 1 (Add unlock action) leads to Step 2 (Register on route) leads to Goal (Gate re-renders unlocked, not yet built), with a one-line caption underneath" width="700">
+<img src="docs/example-plan.svg" alt="Example diagram: Step 1 (Add unlock action) leads to Step 2 (Register on route) leads to Goal (Gate re-renders unlocked, not yet built), with a one-line caption underneath" width="800">
 
 Triggers right before presenting a plan for approval (e.g. before exiting plan mode), or on request: "visualize the plan," "diagram this plan," "what's the plan?"
 
@@ -30,7 +30,7 @@ The resolution step. Reads the diff, classifies it into one of six shapes — tr
 
 A retry bug fixed in three lines, explained as a causal chain instead of a paragraph:
 
-<img src="docs/example.svg" alt="Example diagram: Trigger (Retry on 429) leads to Cause (Backoff never reset) leads to Fix (Reset on success), with a one-line caption underneath" width="700">
+<img src="docs/example.svg" alt="Example diagram: Trigger (Retry on 429) leads to Cause (Backoff never reset) leads to Fix (Reset on success), with a one-line caption underneath" width="800">
 
 Triggers automatically once a coding task finishes, or on request: "explain what you just did," "visualize the fix," "show me what changed," or "why does this fix work" for the deep-dive shape.
 

@@ -45,11 +45,11 @@ Skip the page-level `.eyebrow`/`h1`/`.dek` — that's this reference file's own 
 
 All five are in `style-reference.html` as complete, copyable `<svg>` blocks (search for the `<!-- N. SHAPE -->` comments). Node text always splits into a kicker (`n-kick`, uppercase, letterspaced, sequence/role label like "01 · STEP" or "A · SERVER-SIDE"), a title (`n-title`), and where relevant a monospace subtitle (`n-sub`, e.g. `campaign/actions.ts`) — this file/module reference is what makes the diagram feel grounded in the real codebase, include it whenever you already know where the work will land.
 
-- **Linear steps** (`section 1`, viewBox `0 0 692 132`): 3–6 boxes left-to-right, identical geometry to `visualize-the-fix`'s causal chain. Nodes connect via a small dot (`<circle r="2">`) then a thin `.flow` line with the shared arrow `<marker>` (a hollow chevron path, not a filled triangle). The terminal node gets `.box-goal` + `.goal-mark` instead of `.box-done` + tick.
-- **Phased plan** (`section 2`, viewBox `0 0 692 214`): 2–4 `.dash` containers (dashed stroke, rx 11) left to right, each holding a short list of children (`.mono`/`.mono-out` rows, `.row-rule` hairlines between them) — the same container chrome as `visualize-the-fix`'s before/after, generalized past two. Containers connect with the same dot+flow-line connector. The final phase's container border switches to `--accent-line` to mark it as the plan's end state, mirroring `.box-goal` at the container level — no per-row accent bar unless one specific child is the phase's headline item.
-- **Scope map** (`section 3`, viewBox `0 0 692 214`): two `.dash` containers side by side, labeled **Now** / **Planned** (never "before"/"after" — nothing has changed yet). Same call-chain layout as `visualize-the-fix`'s refactor shape, but the Planned container's new/changed rows get a left-edge bar filled with `var(--accent-line)` (semi-transparent) instead of solid `var(--accent)`, and the row's mono text stays regular weight in `--accent-ink` — a proposed row reads as *lighter* than a done one, on purpose.
-- **Decision plan** (`section 4`, viewBox `0 0 692 236`, not present in `visualize-the-fix`): one root `.box` on the left, forking via two cubic-bezier `.flow` paths (not straight lines — `M{rootRightX} {rootCenterY} C {midX} {rootCenterY} {midX} {branchCenterY} {branchLeftX} {branchCenterY}`, one curve per branch) to two boxes stacked on the right, each with its own arrowhead marker instance. The preferred branch (if any) gets `.box-goal` + accent-ink kicker; the other stays a plain `.box` with a muted kicker noting it's the fallback. If genuinely undecided, both branches stay plain.
-- **Rationale** (`section 5`, viewBox `0 0 692 288`): full-width boxes stacked vertically (goal → approach → why), connected by a `.spine` (short dashed vertical line, not an arrow — this tier isn't a flow, it's a drill-down). Goal is a plain `.box`; Approach gets `.box-goal` + `.goal-mark` (not `.box-done`/tick) if the plan is confident in that approach. The "why it works" tier drops the box fill entirely: `.dash` outline only, plus a small accent bar on the left edge, holding one sentence of `.n-prose` (muted, smaller, reads as commentary not a node).
+- **Linear steps** (`section 1`, viewBox `0 0 796 161`): 3–6 boxes left-to-right, identical geometry to `visualize-the-fix`'s causal chain. Nodes connect via a small dot (`<circle r="2">`) then a thin `.flow` line with the shared arrow `<marker>` (a hollow chevron path, not a filled triangle). The terminal node gets `.box-goal` + `.goal-mark` instead of `.box-done` + tick.
+- **Phased plan** (`section 2`, viewBox `0 0 796 246`): 2–4 `.dash` containers (dashed stroke, rx 11) left to right, each holding a short list of children (`.mono`/`.mono-out` rows, `.row-rule` hairlines between them) — the same container chrome as `visualize-the-fix`'s before/after, generalized past two. Containers connect with the same dot+flow-line connector. The final phase's container border switches to `--accent-line` to mark it as the plan's end state, mirroring `.box-goal` at the container level — no per-row accent bar unless one specific child is the phase's headline item.
+- **Scope map** (`section 3`, viewBox `0 0 796 246`): two `.dash` containers side by side, labeled **Now** / **Planned** (never "before"/"after" — nothing has changed yet). Same call-chain layout as `visualize-the-fix`'s refactor shape, but the Planned container's new/changed rows get a left-edge bar filled with `var(--accent-line)` (semi-transparent) instead of solid `var(--accent)`, and the row's mono text stays regular weight in `--accent-ink` — a proposed row reads as *lighter* than a done one, on purpose.
+- **Decision plan** (`section 4`, viewBox `0 0 796 271`, not present in `visualize-the-fix`): one root `.box` on the left, forking via two cubic-bezier `.flow` paths (not straight lines — `M{rootRightX} {rootCenterY} C {midX} {rootCenterY} {midX} {branchCenterY} {branchLeftX} {branchCenterY}`, one curve per branch) to two boxes stacked on the right, each with its own arrowhead marker instance. The preferred branch (if any) gets `.box-goal` + accent-ink kicker; the other stays a plain `.box` with a muted kicker noting it's the fallback. If genuinely undecided, both branches stay plain.
+- **Rationale** (`section 5`, viewBox `0 0 796 331`): full-width boxes stacked vertically (goal → approach → why), connected by a `.spine` (short dashed vertical line, not an arrow — this tier isn't a flow, it's a drill-down). Goal is a plain `.box`; Approach gets `.box-goal` + `.goal-mark` (not `.box-done`/tick) if the plan is confident in that approach. The "why it works" tier drops the box fill entirely: `.dash` outline only, plus a small accent bar on the left edge, holding one sentence of `.n-prose` (muted, smaller, reads as commentary not a node).
 
 Node/shape budget unchanged: 8 nodes max, one diagram per plan.
 
@@ -57,17 +57,26 @@ Node/shape budget unchanged: 8 nodes max, one diagram per plan.
 
 The pixel positions in `style-reference.html` fit *its own* example text ("Add unlock action," "Register on route"). Real labels are often longer — copying its `x`/`width` values as-is causes text to overflow the box. Every render needs its own sizing pass:
 
-- **Title (`.n-title`, 13.5px sans)**: roughly 7px/character. If a title's estimated width exceeds the box's inner width (box width minus ~36px padding), split it across two `<tspan>` lines instead of widening the box past ~220px:
+- **Title (`.n-title`, 15.5px sans)**: roughly 8px/character. If a title's estimated width exceeds the box's inner width (box width minus ~36px padding), split it across two `<tspan>` lines instead of widening the box past ~250px:
   ```svg
   <text class="n-title" x="X" y="Y">
     <tspan x="X" dy="0">First line of title</tspan>
-    <tspan x="X" dy="16">continues here</tspan>
+    <tspan x="X" dy="18">continues here</tspan>
   </text>
   ```
-  A two-line title needs a taller box (+16–18px) and pushes the subtitle down to match — recompute `n-sub`'s `y` and, for linear-steps/rationale, the connector/goal-mark coordinates that follow it. Cap titles at 2 lines; if it still doesn't fit, shorten the label instead of adding a third line.
-- **Subtitle (`.n-sub`/`.mono`, 11–11.5px mono)**: roughly 6.5px/character, single line — mono file/module refs are usually short, but if one runs long (a deep namespace path), truncate with `…` rather than wrapping a second line.
-- **Box width**: size to the longest line it contains (title or subtitle) + 36px padding, not a fixed 180px. Recenter connectors (`circle cx`, `path d` for `.flow`/`.spine`) and downstream node `x` positions to match — the whole row's total width and the `viewBox` change together when one box grows.
+  A two-line title needs a taller box (+18–20px) and pushes the subtitle down to match — recompute `n-sub`'s `y` and, for linear-steps/rationale, the connector/goal-mark coordinates that follow it. Cap titles at 2 lines; if it still doesn't fit, shorten the label instead of adding a third line.
+- **Subtitle (`.n-sub`/`.mono`, 12.5–13px mono)**: roughly 7.4px/character, single line — mono file/module refs are usually short, but if one runs long (a deep namespace path), truncate with `…` rather than wrapping a second line.
+- **Box width**: size to the longest line it contains (title or subtitle) + 36px padding, not a fixed 207px. Recenter connectors (`circle cx`, `path d` for `.flow`/`.spine`) and downstream node `x` positions to match — the whole row's total width and the `viewBox` change together when one box grows.
 - When in doubt, measure a plain-text draft of every label first, size boxes to the longest one in the row (so nodes stay visually even), *then* place coordinates — don't place coordinates first and hope text fits.
+
+## Sizing for the viewer's actual screen
+
+The reference file's diagrams assume a roughly 900–1100px-wide display — that's what `.wrap`'s `max-width:960px` targets. Two different things make a diagram legible across screen sizes, and they work differently:
+
+- **The SVG itself is already fluid.** `svg{width:100%;height:auto}` plus a fixed `viewBox` means every diagram scales continuously with whatever container it lands in — a wide desktop tab renders it larger, a narrow chat/artifact side panel renders it smaller, automatically, with no JavaScript. You don't need to do anything for this to work, but be aware of the tradeoff: on a genuinely narrow viewport (a phone, a slim side panel under ~420px), the same diagram will render smaller than it does at the reference file's ~900px, because there's less container width to scale into.
+- **The surrounding page text (headings, card notes, glossary entries) is not inside the SVG's coordinate system**, so it needs its own responsiveness: it uses `clamp(minPx, Nrem + Mvw, maxPx)` instead of a fixed `font-size`, so it scales fluidly between a legible floor and a comfortable ceiling as the viewport changes — copy the exact `clamp()` values from `style-reference.html` rather than hardcoding a flat size.
+
+If you know ahead of time that a diagram will render somewhere unusually narrow (embedded in a tight sidebar, a mobile chat bubble), bias toward the smaller end of the shape-classification table (fewer, shorter node labels) rather than trying to fight the container — a diagram that's inherently simpler stays legible at small scale; a dense 6-node row does not, no matter how the CSS is tuned.
 
 ## Glossary (click to see meaning)
 
@@ -86,7 +95,7 @@ Pill switch, fixed bottom-right, no top-of-page label. Checkbox hack (`#theme-to
 ## Rules
 
 - Consistent house style every time — same tokens, same font stack, same accent, same card/glossary/toggle chrome. This is the skill's signature look, not a per-diagram choice.
-- `viewBox` sized to content, matching the reference file's proportions (e.g. `692×132` for a 3-node linear plan) rather than inventing new aspect ratios per diagram.
+- `viewBox` sized to content, matching the reference file's proportions (e.g. `796×152` for a 3-node linear plan) rather than inventing new aspect ratios per diagram.
 - Same node/shape budget as the main skill (8 nodes max, one diagram per plan).
 - Output as a single self-contained `.html` file — inline `<svg>` + `<style>`, no external assets, no Google Fonts import (system font stack only).
 - Never use `.box-done` or the check-mark tick — see "The 'not done yet' rule" above.
