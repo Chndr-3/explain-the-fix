@@ -1,7 +1,7 @@
 {
   "name": "visualize-skills",
-  "description": "Two skills, one house style: visualize-the-fix diagrams a just-finished coding task (bug fix, refactor, new feature) instead of a wall of text, and visualize-the-plan diagrams a proposed plan before you build it. Built for vibe coders who lose track of what an AI agent changed or is about to change. Renders self-contained dark-mode-default HTML/SVG diagrams with a clickable glossary for jargon.",
-  "version": "2.0.0",
+  "description": "Three skills, one house style: visualize-the-problem diagrams a confirmed bug/incident root cause, visualize-the-plan diagrams a proposed fix before you build it, and visualize-the-fix diagrams a just-finished coding task — instead of walls of text at each stage. Built for vibe coders who lose track of what's wrong, what's proposed, or what an AI agent changed. Renders self-contained dark-mode-default HTML/SVG diagrams with a clickable glossary for jargon.",
+  "version": "3.0.0",
   "author": {
     "name": "Chandra Wijaya",
     "url": "https://github.com/Chndr-3"
@@ -16,6 +16,8 @@
     "code-review",
     "explainability",
     "documentation",
-    "ai-agent"
+    "ai-agent",
+    "planning",
+    "debugging"
   ]
 }
