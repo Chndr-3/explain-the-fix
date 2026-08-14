@@ -61,10 +61,10 @@ Skip the page-level `.eyebrow`/`h1`/`.dek` — that's this reference file's own 
 
 All shapes are in `style-reference.html` as complete, copyable `<svg>` blocks (search for the `<!-- N. SHAPE -->` comments). Node text always splits into a kicker (`n-kick`, uppercase, letterspaced, sequence/role label like "01 · SYMPTOM" or "A · CONFIRMED"), a title (`n-title`), and where relevant a monospace subtitle (`n-sub`, e.g. `ReportTotals.tsx`) — this file/module reference is what makes the diagram feel grounded in the real codebase, include it whenever you already know where the cause lives.
 
-- **Symptom chain** (`section 1`, viewBox `0 0 692 132`): 3–6 boxes left-to-right, identical geometry to `visualize-the-fix`'s causal chain. Nodes connect via a small dot (`<circle r="2">`) then a thin `.flow` line with the shared arrow `<marker>` (a hollow chevron path, not a filled triangle). The terminal node gets `.box-problem` + the warning mark instead of `.box-done`/tick or `.box-goal`/target.
-- **Reproduction sequence** (`section 2`, viewBox `0 0 692 132`): same left-to-right box row as the symptom chain, but nodes are ordered actions, and the terminal node is the failure itself — same `.box-problem` treatment.
-- **Hypothesis fork** (`section 3`, viewBox `0 0 692 236`, same geometry as `visualize-the-plan`'s decision fork): one root `.box` on the left, forking via two cubic-bezier `.flow` paths (not straight lines) to two boxes stacked on the right, each with its own arrowhead marker instance. The confirmed branch (if any) gets `.box-problem` + accent-ink kicker; the ruled-out branch stays a plain `.box` with a muted kicker. If genuinely undetermined, both branches stay plain.
-- **Mechanism deep dive** (`section 4`, viewBox `0 0 692 288`): full-width boxes stacked vertically (symptom → root cause → why), connected by a `.spine` (short dashed vertical line, not an arrow — this tier is a drill-down). Symptom is a plain `.box`; Root cause gets `.box-problem` + the warning mark. The "why it happens" tier drops the box fill entirely: `.dash` outline only, plus a small accent bar on the left edge, holding one sentence of `.n-prose`.
+- **Symptom chain** (`section 1`, viewBox `0 0 796 152`): 3–6 boxes left-to-right, identical geometry to `visualize-the-fix`'s causal chain. Nodes connect via a small dot (`<circle r="2">`) then a thin `.flow` line with the shared arrow `<marker>` (a hollow chevron path, not a filled triangle). The terminal node gets `.box-problem` + the warning mark instead of `.box-done`/tick or `.box-goal`/target.
+- **Reproduction sequence** (`section 2`, viewBox `0 0 796 161`): same left-to-right box row as the symptom chain, but nodes are ordered actions, and the terminal node is the failure itself — same `.box-problem` treatment.
+- **Hypothesis fork** (`section 3`, viewBox `0 0 796 271`, same geometry as `visualize-the-plan`'s decision fork): one root `.box` on the left, forking via two cubic-bezier `.flow` paths (not straight lines) to two boxes stacked on the right, each with its own arrowhead marker instance. The confirmed branch (if any) gets `.box-problem` + accent-ink kicker; the ruled-out branch stays a plain `.box` with a muted kicker. If genuinely undetermined, both branches stay plain.
+- **Mechanism deep dive** (`section 4`, viewBox `0 0 796 331`): full-width boxes stacked vertically (symptom → root cause → why), connected by a `.spine` (short dashed vertical line, not an arrow — this tier is a drill-down). Symptom is a plain `.box`; Root cause gets `.box-problem` + the warning mark. The "why it happens" tier drops the box fill entirely: `.dash` outline only, plus a small accent bar on the left edge, holding one sentence of `.n-prose`.
 
 Node/shape budget unchanged: 8 nodes max, one diagram per problem.
 
@@ -72,17 +72,26 @@ Node/shape budget unchanged: 8 nodes max, one diagram per problem.
 
 The pixel positions in `style-reference.html` fit *its own* example text. Real labels are often longer — copying its `x`/`width` values as-is causes text to overflow the box. Every render needs its own sizing pass:
 
-- **Title (`.n-title`, 13.5px sans)**: roughly 7px/character. If a title's estimated width exceeds the box's inner width (box width minus ~36px padding), split it across two `<tspan>` lines instead of widening the box past ~220px:
+- **Title (`.n-title`, 15.5px sans)**: roughly 8px/character. If a title's estimated width exceeds the box's inner width (box width minus ~36px padding), split it across two `<tspan>` lines instead of widening the box past ~250px:
   ```svg
   <text class="n-title" x="X" y="Y">
     <tspan x="X" dy="0">First line of title</tspan>
-    <tspan x="X" dy="16">continues here</tspan>
+    <tspan x="X" dy="18">continues here</tspan>
   </text>
   ```
-  A two-line title needs a taller box (+16–18px) and pushes the subtitle down to match — recompute `n-sub`'s `y` and any downstream connector/marker coordinates. Cap titles at 2 lines; if it still doesn't fit, shorten the label instead of adding a third line.
-- **Subtitle (`.n-sub`/`.mono`, 11–11.5px mono)**: roughly 6.5px/character, single line — mono file/module refs are usually short, but if one runs long, truncate with `…` rather than wrapping a second line.
-- **Box width**: size to the longest line it contains (title or subtitle) + 36px padding, not a fixed 180px. Recenter connectors and downstream node `x` positions to match.
+  A two-line title needs a taller box (+18–20px) and pushes the subtitle down to match — recompute `n-sub`'s `y` and any downstream connector/marker coordinates. Cap titles at 2 lines; if it still doesn't fit, shorten the label instead of adding a third line.
+- **Subtitle (`.n-sub`/`.mono`, 12.5–13px mono)**: roughly 7.4px/character, single line — mono file/module refs are usually short, but if one runs long, truncate with `…` rather than wrapping a second line.
+- **Box width**: size to the longest line it contains (title or subtitle) + 36px padding, not a fixed 207px. Recenter connectors and downstream node `x` positions to match.
 - When in doubt, measure a plain-text draft of every label first, size boxes to the longest one in the row (so nodes stay visually even), *then* place coordinates — don't place coordinates first and hope text fits.
+
+## Sizing for the viewer's actual screen
+
+The reference file's diagrams assume a roughly 900–1100px-wide display — that's what `.wrap`'s `max-width:960px` targets. Two different things make a diagram legible across screen sizes, and they work differently:
+
+- **The SVG itself is already fluid.** `svg{width:100%;height:auto}` plus a fixed `viewBox` means every diagram scales continuously with whatever container it lands in — a wide desktop tab renders it larger, a narrow chat/artifact side panel renders it smaller, automatically, with no JavaScript. You don't need to do anything for this to work, but be aware of the tradeoff: on a genuinely narrow viewport (a phone, a slim side panel under ~420px), the same diagram will render smaller than it does at the reference file's ~900px, because there's less container width to scale into.
+- **The surrounding page text (headings, card notes, glossary entries) is not inside the SVG's coordinate system**, so it needs its own responsiveness: it uses `clamp(minPx, Nrem + Mvw, maxPx)` instead of a fixed `font-size`, so it scales fluidly between a legible floor and a comfortable ceiling as the viewport changes — copy the exact `clamp()` values from `style-reference.html` rather than hardcoding a flat size.
+
+If you know ahead of time that a diagram will render somewhere unusually narrow (embedded in a tight sidebar, a mobile chat bubble), bias toward the smaller end of the shape-classification table (fewer, shorter node labels) rather than trying to fight the container — a diagram that's inherently simpler stays legible at small scale; a dense 6-node row does not, no matter how the CSS is tuned.
 
 ## Glossary (click to see meaning)
 
