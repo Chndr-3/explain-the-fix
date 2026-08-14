@@ -1,10 +1,10 @@
 ---
-name: explain-the-fix
+name: visualize-the-fix
 description: Use when a coding task (bug fix, refactor, new feature) just finished and it's time to explain the change, or when the user asks to "explain," "visualize," or "show" what was just done — produces a small proportional diagram instead of a text summary.
 license: MIT
 ---
 
-# Explain the Fix
+# Visualize the Fix
 
 ## Overview
 

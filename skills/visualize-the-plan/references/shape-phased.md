@@ -12,7 +12,7 @@ Example: "Migrate the report exporter to the new queue"
 
 ## Rules
 
-- A phase container is `.dash` chrome (same as `explain-the-fix`'s before/after containers, generalized to N containers) — dashed stroke, no fill, holding a short mono or plain-text list of its children.
+- A phase container is `.dash` chrome (same as `visualize-the-fix`'s before/after containers, generalized to N containers) — dashed stroke, no fill, holding a short mono or plain-text list of its children.
 - Connect containers left to right with the same dot + flow-line connector as linear steps — one arrow per phase boundary, not one per child.
 - The last phase's container gets the accent-line border (not the earlier phases) to mark it as the plan's end state — same idea as `.box-goal`, applied to a container instead of a single box.
 - If a phase would need more than 3 children, collapse the smallest ones into "other" rather than exceeding the 8-node total budget across all containers.

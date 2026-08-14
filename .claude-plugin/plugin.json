@@ -1,13 +1,13 @@
 {
-  "name": "explain-the-fix",
-  "description": "Two skills, one house style: explain-the-fix diagrams a just-finished coding task (bug fix, refactor, new feature) instead of a wall of text, and visualize-the-plan diagrams a proposed plan before you build it. Built for vibe coders who lose track of what an AI agent changed or is about to change. Renders self-contained dark-mode-default HTML/SVG diagrams with a clickable glossary for jargon.",
-  "version": "1.1.0",
+  "name": "visualize-the-fix",
+  "description": "Two skills, one house style: visualize-the-fix diagrams a just-finished coding task (bug fix, refactor, new feature) instead of a wall of text, and visualize-the-plan diagrams a proposed plan before you build it. Built for vibe coders who lose track of what an AI agent changed or is about to change. Renders self-contained dark-mode-default HTML/SVG diagrams with a clickable glossary for jargon.",
+  "version": "2.0.0",
   "author": {
     "name": "Chandra Wijaya",
     "url": "https://github.com/Chndr-3"
   },
-  "homepage": "https://github.com/Chndr-3/explain-the-fix",
-  "repository": "https://github.com/Chndr-3/explain-the-fix",
+  "homepage": "https://github.com/Chndr-3/visualize-the-fix",
+  "repository": "https://github.com/Chndr-3/visualize-the-fix",
   "license": "MIT",
   "keywords": [
     "diagrams",

@@ -8,7 +8,7 @@ license: MIT
 
 ## Overview
 
-A plan read as a bulleted list is slower to scan than a small diagram of the same shape. This skill picks the smallest diagram shape that fits a *proposed* plan and renders it — no essay alongside it. It's the forward-looking sibling of `explain-the-fix`: same house style, but the diagram shows work that's about to happen, not work that already did.
+A plan read as a bulleted list is slower to scan than a small diagram of the same shape. This skill picks the smallest diagram shape that fits a *proposed* plan and renders it — no essay alongside it. It's the forward-looking sibling of `visualize-the-fix`: same house style, but the diagram shows work that's about to happen, not work that already did.
 
 ## When to use
 
@@ -43,6 +43,6 @@ Full worked examples and node-labeling conventions per shape: `references/shape-
 
 - One diagram per plan, unless the plan genuinely has two independent tracks of work.
 - 8 node hard cap regardless of shape.
-- Never use the `.box-done` fill or the check-mark tick from `explain-the-fix`'s house style — those mean "already executed." Nothing in a plan diagram has happened yet; use `.box-goal` (dashed accent outline + target mark) for the node the plan is building toward instead.
+- Never use the `.box-done` fill or the check-mark tick from `visualize-the-fix`'s house style — those mean "already executed." Nothing in a plan diagram has happened yet; use `.box-goal` (dashed accent outline + target mark) for the node the plan is building toward instead.
 - No scrolling/squinting — this is glanceable, not documentation.
 - Prose is 1–2 sentences, doesn't restate the diagram.

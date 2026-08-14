@@ -1,11 +1,11 @@
 {
-  "name": "explain-the-fix",
+  "name": "visualize-the-fix",
   "interface": {
-    "displayName": "Explain the Fix"
+    "displayName": "Visualize the Fix"
   },
   "plugins": [
     {
-      "name": "explain-the-fix",
+      "name": "visualize-the-fix",
       "source": {
         "source": "local",
         "path": "./"
