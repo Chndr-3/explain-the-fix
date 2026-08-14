@@ -1,11 +1,11 @@
 {
-  "name": "visualize-the-fix",
+  "name": "visualize-skills",
   "interface": {
-    "displayName": "Visualize the Fix"
+    "displayName": "Visualize Skills"
   },
   "plugins": [
     {
-      "name": "visualize-the-fix",
+      "name": "visualize-skills",
       "source": {
         "source": "local",
         "path": "./"
