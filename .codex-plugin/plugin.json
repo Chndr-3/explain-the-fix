@@ -1,13 +1,13 @@
 {
-  "name": "visualize-the-fix",
+  "name": "visualize-skills",
   "description": "Two skills, one house style: visualize-the-fix diagrams a just-finished coding task (bug fix, refactor, new feature) instead of a wall of text, and visualize-the-plan diagrams a proposed plan before you build it. Built for vibe coders who lose track of what an AI agent changed or is about to change. Renders self-contained dark-mode-default HTML/SVG diagrams with a clickable glossary for jargon.",
   "version": "2.0.0",
   "author": {
     "name": "Chandra Wijaya",
     "url": "https://github.com/Chndr-3"
   },
-  "homepage": "https://github.com/Chndr-3/visualize-the-fix",
-  "repository": "https://github.com/Chndr-3/visualize-the-fix",
+  "homepage": "https://github.com/Chndr-3/visualize-skills",
+  "repository": "https://github.com/Chndr-3/visualize-skills",
   "license": "MIT",
   "keywords": [
     "diagrams",
@@ -21,7 +21,7 @@
   ],
   "skills": "./skills",
   "interface": {
-    "displayName": "Visualize the Fix",
+    "displayName": "Visualize Skills",
     "shortDescription": "Explain a finished change or visualize a proposed plan as a small diagram, not a wall of text.",
     "longDescription": "Two skills sharing one house style. visualize-the-fix diagrams a just-finished coding task (bug fix, refactor, new feature) instead of a wall of text — classifying the diff into a causal chain, before/after refactor, sequence flow, or vertical deep-dive (cause → fix → why it works). visualize-the-plan does the same for a proposed plan before you build it — linear steps, a phased plan, a Now/Planned scope map, a decision fork, or a rationale deep-dive. Both render a self-contained, dark-mode-default HTML/SVG diagram with a clickable glossary for any jargon in the labels.",
     "developerName": "Chandra Wijaya",
@@ -30,7 +30,7 @@
       "Read",
       "Write"
     ],
-    "websiteURL": "https://github.com/Chndr-3/visualize-the-fix",
+    "websiteURL": "https://github.com/Chndr-3/visualize-skills",
     "defaultPrompt": [
       "Explain what you just did.",
       "Visualize the fix you just made.",

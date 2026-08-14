@@ -1,4 +1,4 @@
-# visualize-the-fix
+# visualize-skills
 
 Two [Claude Code](https://claude.com/claude-code) skills, one house style: **visualize-the-fix** explains a just-finished coding task (bug fix, refactor, new feature) as a small diagram, and **visualize-the-plan** does the same for a plan before you build it. Both trade a wall of text for a small, proportional diagram.
 
@@ -28,8 +28,8 @@ Triggers right before presenting a plan for approval (e.g. before exiting plan m
 
 **As a plugin (recommended):**
 ```
-/plugin marketplace add Chndr-3/visualize-the-fix
-/plugin install visualize-the-fix
+/plugin marketplace add Chndr-3/visualize-skills
+/plugin install visualize-skills
 ```
 Installing the plugin gives you both skills.
 
@@ -49,7 +49,7 @@ Each skill carries its own copy of the house style (`references/style-reference.
 
 ## Contributing
 
-See `CONTRIBUTING.md`. Bugs and feature requests: [GitHub issues](https://github.com/Chndr-3/visualize-the-fix/issues). Security issues: see `SECURITY.md` (please don't file those as public issues).
+See `CONTRIBUTING.md`. Bugs and feature requests: [GitHub issues](https://github.com/Chndr-3/visualize-skills/issues). Security issues: see `SECURITY.md` (please don't file those as public issues).
 
 ## License
 

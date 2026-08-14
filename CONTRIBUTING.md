@@ -40,4 +40,4 @@ Each skill is self-contained: its own `SKILL.md`, its own `references/renderer.m
 
 ## Reporting bugs / requesting shapes
 
-Open a [GitHub issue](https://github.com/Chndr-3/visualize-the-fix/issues). For a bug, include the diff/plan and which skill produced the bad diagram if you can — most rendering bugs are about a specific label/shape combination, not the renderer in general.
+Open a [GitHub issue](https://github.com/Chndr-3/visualize-skills/issues). For a bug, include the diff/plan and which skill produced the bad diagram if you can — most rendering bugs are about a specific label/shape combination, not the renderer in general.
